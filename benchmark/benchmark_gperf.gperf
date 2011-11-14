@@ -1,0 +1,66 @@
+%{
+//gperf -CGD -N IsValidCommandLineOption -K Option -L ANSI-C -t benchmark_gperf.gperf > benchmark_gperf.c
+#include <stddef.h>
+#include <string.h>
+typedef enum {
+	xhi,
+	xlo,
+	xhello,
+	xholla,
+	xhollu,
+	xhodlu,
+	xbye,
+	xunknown
+} CommandOptionCode;
+
+%}
+struct CommandOption
+  {
+  const char *Option;
+  int OptionCode;
+  };
+%%
+hi, xhi
+lo, xlo
+hello, xhello
+holla, xholla
+hollu, xhollu
+hodlu, xhodlu
+bye, xbye
+%%
+int main(int argc, char** argv) {
+        struct CommandOption *res;
+        size_t i = 0;
+        while(i < 10000000) {
+		res = IsValidCommandLineOption(argv[1], strlen(argv[1]));
+		if(res) {
+			switch(res->OptionCode) {
+			case xhi:
+			case xhello:
+				puts("hi");
+				break;
+			case xlo:
+				puts("lo!!");
+				break;
+			case xbye:
+				puts("bye");
+				break;
+			case xholla:
+				puts("holla!");
+				break;
+			case xhollu:
+				puts("hollu!");
+				break;
+			case xhodlu:
+				puts("hodlu!");
+				break;
+			default:
+				main_default:
+				puts("unknown command!");
+				break;
+			}
+		} else goto main_default;
+		i++;
+        }
+}
+
