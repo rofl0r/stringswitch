@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "stringswitch.h"
+#include "../stringswitch.h"
 
 
 //stringswitch_gen add argv0 "hi"
