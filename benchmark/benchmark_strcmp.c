@@ -10,7 +10,7 @@ void puts(char* str) {
 int main(int argc, char** argv) {
 
 size_t i = 0;
-while(i < 10000000) {
+while(i < 100000000) {
 
 	if(strcmp(argv[1], "hi") == 0 || strcmp(argv[1], "hello") == 0)
 				puts("hi");

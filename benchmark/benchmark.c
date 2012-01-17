@@ -22,7 +22,7 @@ void puts(char* str) {
 int main(int argc, char** argv) {
 
 size_t i = 0;
-while(i < 10000000) {
+while(i < 100000000) {
 
 #ifdef STATIC
 	stringswitch_s(argv0, "hodlu") {

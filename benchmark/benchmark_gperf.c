@@ -167,7 +167,7 @@ IsValidCommandLineOption (register const char *str, register unsigned int len)
 int main(int argc, char** argv) {
         struct CommandOption *res;
         size_t i = 0;
-        while(i < 10000000) {
+        while(i < 100000000) {
 		res = IsValidCommandLineOption(argv[1], strlen(argv[1]));
 		if(res) {
 			switch(res->OptionCode) {
