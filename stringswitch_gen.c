@@ -43,7 +43,7 @@ typedef struct {
 
 static uint32_t daliashash_sp(stringptr* str) {
 	uint_fast32_t h = 0;
-	char* s = str->ptr;
+	unsigned char* s = (void*) str->ptr;
 	size_t size = str->size;
 	while (size) {
 		h = 16*h + *s++;
